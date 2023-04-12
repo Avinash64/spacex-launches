@@ -5,7 +5,12 @@ const launches = require("../lde.json")
 function LaunchSummary() {
   return (
     <div className='launchSummary text-white bg-dark mb-3'>
-        <div className='card-title mt-3'>LaunchSummary {launches[0].name}</div>
+        <div className='card-title mt-3'>LaunchSummary {launches[0].name} 
+        <span className="badge bg-danger">
+            {launches[0].success ? "Success" : "Fail"}
+        
+        </span>
+        </div>
         <div className='card-body'>
 
         {/* <div>{JSON.stringify(launches[0].links)}</div> */}
