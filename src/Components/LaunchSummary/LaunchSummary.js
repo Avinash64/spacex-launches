@@ -2,35 +2,34 @@ import React from 'react'
 import "./LaunchSummary.css"
 const launches = require("../lde.json")
 
-function LaunchSummary() {
+function LaunchSummary(props) {
+  var launch = props.launch;
   return (
+
     <div className='launchSummary text-white bg-dark mb-3'>
-        <div className='card-title mt-3'>LaunchSummary {launches[0].name} 
+        <div className='card-title mt-3 title'>
+          <div>
+            {launch.name} 
+            </div>
         <span className="badge bg-danger">
-            {launches[0].success ? "Success" : "Fail"}
+            {launch.success ? "Success" : "Fail"}
         
         </span>
         </div>
+        <div className="card-img-top patch" style={{backgroundImage : `url('${launch.links.patch.large}')`}}> </div>
         <div className='card-body'>
 
-        {/* <div>{JSON.stringify(launches[0].links)}</div> */}
-        <div>{JSON.stringify(launches[0].rocket)}</div>
-        <div>{JSON.stringify(launches[0].success)}</div>
-        <div>{JSON.stringify(launches[0].details)}</div>
-        <div>{JSON.stringify(launches[0].crew)}</div>
-        <div>{JSON.stringify(launches[0].ships)}</div>
-        <div>{JSON.stringify(launches[0].capsules)}</div>
-        <div>{JSON.stringify(launches[0].payloads)}</div>
-        <div>{JSON.stringify(launches[0].launchpad)}</div>
-        <div>{JSON.stringify(launches[0].flight_number)}</div>
-        <div></div>
-        <div>{JSON.stringify(launches[0].date_local)}</div>
-        <div>{JSON.stringify(launches[0].upcoming)}</div>
-        {/* <div>{JSON.stringify(launches[0].cores)}</div> */}
-        <div>{JSON.stringify(launches[0].auto_update)}</div>
-        <div>{JSON.stringify(launches[0].tbd)}</div>
-        <div>{JSON.stringify(launches[0].launch_library_id)}</div>
-        <div>{JSON.stringify(launches[0].id)}</div>
+        {/* <div>{JSON.stringify(launch.links)}</div> */}
+        <div className='info'>Flight Number: {launch.flight_number}</div>
+        <div className='info'>Date: {launch.date_local}</div>
+        <div className='info'>Details: {launch.details}</div>
+        <div className='info'>Rocket Id: {launch.rocket}</div>
+        {/* <div className='info'>{launch.crew}</div> */}
+        {/* <div className='info'>{launch.ships}</div> */}
+        {/* <div className='info'>{launch.capsules}</div> */}
+        <div className='info'>Payload Id: {launch.payloads}</div>
+        <div className='info'>Launchpad Id: {launch.launchpad}</div>
+
         </div>
     </div>
   )
